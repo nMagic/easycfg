@@ -24,13 +24,13 @@ class ConfigList(list):
             if type(data[i]) == type(list()):
                 data[i] = ConfigList(data[i])
             elif type(data[i]) == type(dict()):
-                data[i] = ConfigDict(data[i])
+                data[i] = ConfigDict(**data[i])
         super().__init__(data)
 
     def __getitem__(self, key):
         data = super().__getitem__(key)
         if isinstance(data, dict):
-            return ConfigDict(data)
+            return ConfigDict(**data)
         elif isinstance(data, list):
             return ConfigList(data)
 
@@ -53,6 +53,6 @@ def config_load(filename):
         ext = file.name.split('.')[-1].lower()
         data = funcs[ext](file)
     if isinstance(data, dict):
-        return ConfigDict(data)
+        return ConfigDict(**data)
     elif isinstance(data, list):
         return ConfigList(data)
