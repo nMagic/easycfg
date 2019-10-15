@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="easycfg",
-    version="1.0.0",
+    version="1.0.1",
     author="Dmitriy Glebenkov",
     author_email="dvg1995@gmail.com",
     description="A simple package for easy work with cfg files",
@@ -19,4 +19,5 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.4',
+    install_requires=['PyYAML==5.1.2', ]
 )
