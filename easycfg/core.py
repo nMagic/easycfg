@@ -49,7 +49,7 @@ def config_load(filename):
         'yaml': yaml.safe_load,
         'json': json.load,
     }
-    with open(filename) as file:
+    with open(filename,encoding='utf-8') as file:
         ext = file.name.split('.')[-1].lower()
         data = funcs[ext](file)
     if isinstance(data, dict):
